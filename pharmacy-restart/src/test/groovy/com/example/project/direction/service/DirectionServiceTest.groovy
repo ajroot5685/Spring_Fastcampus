@@ -1,6 +1,8 @@
 package com.example.project.direction.service
 
 import com.example.project.api.dto.DocumentDto
+import com.example.project.api.service.KakaoCategorySearchService
+import com.example.project.direction.repository.DirectionRepository
 import com.example.project.pharmacy.dto.PharmacyDto;
 import com.example.project.pharmacy.service.PharmacySearchService;
 import spock.lang.Specification;
@@ -10,6 +12,10 @@ class DirectionServiceTest extends Specification {
     // directionService가 pharmacySearchService를 인자로 필요하기때문에 Mock객체?로 만들어 사용
     // 테스트 시에는 스프링 컨테이너가 실행되지 않는다.
     // 따라서 가짜 데이터를 만들어 주고 mock 객체가 마치 db를 조회하는 것처럼 역할을 수행한다.
+    private final DirectionRepository directionRepository = Mock();
+    private final KakaoCategorySearchService kakaoCategorySearchService = Mock();
+    private final Base62Service base62Service = Mock();
+
     private DirectionService directionService = new DirectionService(pharmacySearchService)
 
     private List<PharmacyDto> pharmacyList;
