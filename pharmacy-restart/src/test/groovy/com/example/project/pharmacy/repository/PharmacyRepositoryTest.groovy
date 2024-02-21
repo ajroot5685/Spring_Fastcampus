@@ -34,5 +34,5 @@ class PharmacyRepositoryTest extends AbstractIntegrationContainerBaseTest {
         result.getLatitude() == latitude
         result.getLongitude() == longitude
     }
-    
+
 }
